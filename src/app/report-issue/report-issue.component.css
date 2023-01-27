@@ -1,0 +1,11 @@
+.mainHead {
+   text-align: left;font-size: large; margin: 5px 0 0 5px;
+   word-wrap:break-word;
+}
+.mainHeadInput {
+   height: 35px;
+}
+.buttonWdth {
+   height: 40px;
+   white-space: normal;
+}

@@ -1,0 +1,24 @@
+/* .labelHead {
+   font-size: large;
+} */
+
+.mainHead {
+   text-align: left;font-size: large; margin: 5px 0 0 0px;
+   word-wrap:break-word;
+
+}
+.buttonPush {
+   margin-left: -1px;
+}
+.topMargin{
+   margin-top: 30px
+}
+.mainHeadInput {
+   height: 35px; margin-left:5px;
+
+}
+.buttonWdth {
+   height: 60px;
+   white-space: normal;
+
+}

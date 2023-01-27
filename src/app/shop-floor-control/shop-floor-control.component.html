@@ -1,0 +1,183 @@
+<soho-icons-new></soho-icons-new>
+<soho-icons-empty-new></soho-icons-empty-new>
+<div class="fourteen columns" soho-busyindicator [activated]="false" [text]=" isLoadingText" [blockUI]="true"
+   [displayDelay]="0">
+   <soho-header>
+      <soho-toolbar-flex>
+         <soho-toolbar-flex-section [isTitle]="true">
+            <h2>
+               <span soho-toolbar-flex-page-title>Shopfloor control</span>
+            </h2>
+         </soho-toolbar-flex-section>
+      </soho-toolbar-flex>
+   </soho-header>
+
+   <div class="eleven columns">
+      <div class="three columns topMargin">
+         <div class="four columns labelHead mainHead">
+            <label>
+               <h2>Facility</h2>
+            </label>
+         </div>
+         <div class="field eight columns mainHeadInput">
+            <input soho-lookup [columns]="columns" [dataset]="faciFinal" [(ngModel)]="shwFaciDesc" [options]="{
+                  paging: true,
+                  filterWhenTyping:true,
+                  pagesize: 5,
+                  pagesizes: [5, 10, 15,25,50]
+                }" [toolbar]="toolbar" (selected)="onFacility($event)" [disabled]="false" [disabled]="false" />
+         </div>
+      </div>
+      <div class="three columns topMargin">
+         <div class="four columns labelHead mainHead">
+            <label>
+               <h2>Workcenter</h2>
+            </label>
+         </div>
+         <div class="field eight columns mainHeadInput">
+            <input soho-lookup [columns]="wcColumns" [dataset]="wcFinal" [(ngModel)]="shwWCDesc" [options]="{
+                     paging: true,
+                     filterWhenTyping:true,
+                     pagesize: 5,
+                     pagesizes: [5, 10, 15,25,50]
+                   }" [toolbar]="wcToolbar" (selected)="onWorkCenter($event)" class="input-mm" [disabled]="false"
+               [disabled]="false" />
+         </div>
+      </div>
+
+
+      <div class="three columns topMargin">
+
+         <div class="four columns labelHead mainHead">
+            <label>
+               <h2>From Date</h2>
+            </label>
+         </div>
+         <div class="field eight columns mainHeadInput">
+            <div class="field">
+               <input id="date-field-normal" data-automation-id="custom-automation-id" soho-datepicker name="date-field"
+                  type="text" data-init="false" data-options="{'dateFormat': 'yyyy-MM-dd'}" class="input-mm"
+                  [(ngModel)]="selFromDate" (change)="onFromDate()" />
+            </div>
+         </div>
+      </div>
+      <div class="three columns topMargin">
+         <div class="four columns labelHead mainHead">
+            <label>
+               <h2>To Date</h2>
+            </label>
+         </div>
+         <div class="eight columns mainHeadInput">
+            <div class="field">
+               <input id="date-field-normal" class="input-mm" data-automation-id="custom-automation-id" soho-datepicker
+                  name="date-field" type="text" data-init="false" [(ngModel)]="selToDate"
+                  data-options="{'dateFormat': 'yyyy-MM-dd'}" (change)="onToDate()" />
+            </div>
+         </div>
+
+
+      </div>
+   </div>
+
+
+
+
+   <div class="one column" style=" margin-left:-2px; margin-top:30px">
+      <div class="field">
+         <button class="btn btn-secondary btn-full-width" [disabled]=" false" (click)="onApplyDates()"
+            [disabled]="isFTDateApply">Apply</button>
+      </div>
+   </div>
+
+
+   <div class="fourteen columns">
+      <hr>
+   </div>
+   <div class="twelve columns">
+      <div class="ten columns" style="margin-left: -1px">
+         <div style="border:1px solid rgb(221, 215, 215); min-height: 380px;max-height: 380px; scroll-behavior: mmooth; width: 300px;
+         height: 380px;
+         scrollbar-width: thin;" soho-datagrid [gridOptions]="datagridOptions" (selected)="onRowSelected($event)"
+            filterable="true" columnReorder="true"></div>
+      </div>
+      <div class="two columns" style="margin-top: 50px;">
+         <div class="twelve columns buttonPush">
+            <div class="field">
+               <button class="btn btn-secondary btn-full-width buttonWdth" style="width: 110%;" routerLink="/startMo"
+                  routerLinkActive="Active" [disabled]="false"> Open MO Details
+               </button>
+            </div>
+         </div>
+         <div style="width: 105%;">
+            <div class="six columns buttonPush">
+               <div class="field">
+                  <button class="btn btn-secondary btn-full-width buttonWdth" style="width: 110%;" routerLink="/startMo"
+                     routerLinkActive="Active" [disabled]="false">Start
+                     MO</button>
+               </div>
+            </div>
+            <div class="six columns buttonWdth1">
+               <div class="field">
+                  <button class=" btn btn-secondary btn-full-width buttonWdth" style="width: 110%"
+                     routerLink="/startDisturbance" [disabled]="false">Start
+                     Disturbance</button>
+               </div>
+            </div>
+
+
+         </div>
+         <div style="width: 105%;">
+            <div class="six columns buttonPush">
+               <div class="field">
+                  <button class="btn btn-secondary btn-full-width buttonWdth" routerLink="/stopMo" style="width: 110%;"
+                     routerLinkActive="Active" [disabled]="false">Stop
+                     MO</button>
+               </div>
+            </div>
+            <div class="six columns buttonWdth1">
+               <div class="field">
+                  <button class="btn btn-secondary btn-full-width buttonWdth" style="width: 110%"
+                     routerLink="/stopDisturbance" [disabled]="false">Stop
+                     Disturbance</button>
+               </div>
+            </div>
+
+
+         </div>
+         <div style="width:105%">
+
+            <div class="six columns buttonPush ">
+               <div class="field">
+                  <button class="btn btn-secondary btn-full-width buttonWdth" routerLink="/plausibilityCheck"
+                     style="width: 110%;" [disabled]="false">Plausibility
+                     Check</button>
+               </div>
+            </div>
+
+
+            <div class="six columns buttonWdth1">
+               <div class="field">
+                  <button class="btn btn-secondary btn-full-width buttonWdth" style="width: 110%"
+                     routerLink="/reportIssue" [disabled]="false">Report
+                     Issue</button>
+               </div>
+            </div>
+
+         </div>
+         <div style="width: 105%;">
+            <div class="six columns buttonPush">
+               <div class="field">
+                  <button class="btn btn-secondary btn-full-width buttonWdth" routerLink="/reportReceipt"
+                     style="width: 110%;" routerLinkActive="active" [disabled]="false">Report Reciept</button>
+               </div>
+            </div>
+            <div class="six columns buttonWdth1">
+               <div class="field">
+                  <button class="btn btn-secondary btn-full-width buttonWdth" style="width: 110%"
+                     routerLink="/billOfMaterials" [disabled]="false">Bill of
+                     Materials</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>

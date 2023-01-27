@@ -1,0 +1,45 @@
+<soho-header>
+   <soho-toolbar-flex>
+      <soho-toolbar-flex-section [isTitle]="true">
+         <h2>
+            <span soho-toolbar-flex-page-title>Shopfloor control</span>
+         </h2>
+
+      </soho-toolbar-flex-section>
+   </soho-toolbar-flex>
+</soho-header>
+<div class="row eight columns top-padding">
+
+   <div class="two columns labelHead mainHead" style="margin-left: 20px;">
+      <label>
+         <h2>MO Number</h2>
+      </label>
+   </div>
+   <div class="field five columns mainHeadInput">
+      <input type="input" [(ngModel)]="moNumber" class="input-mm" readonly="true" [disabled]="false" />
+   </div>
+</div>
+<div class="fourteen columns">
+   <hr>
+</div>
+
+<div>
+   <div class="twelve columns">
+      <div class="eight columns" style="margin-right: 30px;">
+         <div style="border:1px solid rgb(221, 215, 215); min-height: 300px;max-height: 300px; scroll-behavior: mmooth; width: 300px;
+         height: 300px;
+         scrollbar-width: thin;" soho-datagrid [gridOptions]="datagridOptions" filterable="true" columnReorder="true">
+         </div>
+      </div>
+      <div class="three columms mainHeadInput" style="margin-top: 5%;">
+         <label for="description-max">Barcode</label>
+         <textarea id="description-max" class="textarea" maxlength="60" name="description-max"></textarea>
+      </div>
+      <div class="three columns" style="margin: 170px 0 0 15px">
+         <div class="field">
+            <button class="btn btn-secondary btn-full-width buttonWdth" routerLink="" routerLinkActive="active"
+               [disabled]="false">Back to Main Page</button>
+         </div>
+      </div>
+   </div>
+</div>

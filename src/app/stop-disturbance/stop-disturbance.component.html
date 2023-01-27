@@ -1,0 +1,87 @@
+<soho-header>
+   <soho-toolbar-flex>
+      <soho-toolbar-flex-section [isTitle]="true">
+         <h2>
+            <span soho-toolbar-flex-page-title>Shopfloor control</span>
+         </h2>
+
+      </soho-toolbar-flex-section>
+   </soho-toolbar-flex>
+</soho-header>
+<div class="row twelve columns top-padding">
+   <div class="row six columns">
+      <div class="three columns labelHead mainHead">
+         <label>
+            <h2>Workcenter</h2>
+         </label>
+      </div>
+      <div class="field seven columns mainHeadInput">
+         <input type="input" class="input-mm" [(ngModel)]="wcMsg" [disabled]="false" readonly="true"
+            [disabled]="false" />
+      </div>
+   </div>
+   <div class="row six columns">
+      <div class="three columns labelHead mainHead">
+         <label>
+            <h2>MO Number</h2>
+         </label>
+      </div>
+      <div class="field seven columns mainHeadInput">
+         <input type="input" [(ngModel)]="moNumber" class="input-mm" readonly="true" [disabled]="false" />
+      </div>
+   </div>
+   <div class="row six columns">
+      <div class="three columns labelHead mainHead">
+         <label>
+            <h2>Employee Number</h2>
+         </label>
+      </div>
+      <div class="field seven columns mainHeadInput">
+         <input type="input" class="input-mm" [(ngModel)]="selEmpNumber" [disabled]="false" [disabled]="false" />
+      </div>
+
+   </div>
+   <div class="row six columns">
+      <div class="three columns labelHead mainHead">
+         <label>
+            <h2>Disturbance Code</h2>
+         </label>
+      </div>
+      <div class="field seven columns mainHeadInput">
+         <input soho-lookup [options]="{
+               paging: true,
+               filterWhenTyping:true,
+               pagesize: 5,
+               pagesizes: [5, 10, 15,25,50]
+             }" class="input-mm" [disabled]="false" [disabled]="false" />
+      </div>
+   </div>
+   <div class="row six columns">
+      <div class="three columns labelHead mainHead">
+         <label>
+            <h2>Explanation</h2>
+         </label>
+      </div>
+      <div class="field seven columns mainHeadInput">
+         <input type="input" class="input-mm" [(ngModel)]="selEmpNumber" [disabled]="false" [disabled]="false" />
+      </div>
+
+   </div>
+
+
+   <div class="row">
+      <div class="four columns" style=" margin: 50px 0 0 30px">
+         <div class="field">
+            <button class="btn btn-secondary btn-full-width buttonWdth" (click)="onProcess()"
+               [disabled]="false">Process</button>
+         </div>
+      </div>
+      <div class="four columns" style=" margin: 50px 0 0 30px">
+         <div class="field">
+            <button class="btn btn-secondary btn-full-width buttonWdth" routerLink="" routerLinkActive="active"
+               [disabled]="false">Back to Main Page</button>
+         </div>
+      </div>
+
+   </div>
+</div>
